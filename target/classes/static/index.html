@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Demo</title>
+</head>
+<body>
+<div class="unauthenticated">
+    <h3>Login with Google <a href="/oauth2/authorization/google">click here</a></h3>
+</div>
+<div class="authenticated" style="display: none">
+    Logged in as: <span id="user"></span>
+</div>
+<script type="text/javascript">
+    $.get("/user", function (data) {
+        $("#user").html(data.name);
+        $(".unauthenticated").hide()
+        $(".authenticated").show()
+    });
+</script>
+</body>
+</html>
